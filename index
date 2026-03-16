@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Presença Executiva | XP Consultoria Centro-Oeste</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #F5A623;
+            --gold-dim: rgba(245,166,35,0.15);
+            --black: #080808;
+            --dark: #111111;
+            --card: #151515;
+            --card2: #1a1a1a;
+            --border: #242424;
+            --muted: #777777;
+            --light: #E8E4DF;
+            --white: #FFFFFF;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        .nav {
+            position: fixed; top:0; left:0; right:0; z-index:200;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 48px;
+            background: rgba(8,8,8,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-brand { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; }
+        .nav-brand span { color: var(--gold); }
+        .nav-tag { font-size:10px; letter-spacing:4px; text-transform:uppercase; color: var(--muted); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+            background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(245,166,35,0.06) 0%, transparent 70%), var(--black);
+        }
+        .hero-line {
+            position:absolute; top:0; right:32%; width:1px; height:100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(245,166,35,0.5) 50%, transparent 100%);
+            transform: rotate(10deg) scaleY(1.4);
+        }
+        .hero-content { position:relative; z-index:2; text-align:center; padding: 120px 40px 80px; max-width: 960px; }
+        .hero-eyebrow { font-size:10px; font-weight:500; letter-spacing:5px; text-transform:uppercase; color: var(--gold); margin-bottom:24px; animation: fadeUp .7s ease both .2s; }
+        .hero-title { font-family:'Cormorant Garamond',serif; font-size: clamp(52px, 8vw, 100px); font-weight:300; line-height:1.0; letter-spacing:-2px; margin-bottom:32px; animation: fadeUp .7s ease both .4s; }
+        .hero-title em { font-style:italic; color: var(--gold); }
+        .hero-sub { font-size:15px; color: var(--muted); max-width:540px; margin: 0 auto 40px; animation: fadeUp .7s ease both .6s; }
+        .hero-divider { width:48px; height:1px; background: var(--gold); margin: 0 auto; }
+
+        /* SECTIONS */
+        .wrap { max-width:1280px; margin:0 auto; padding: 0 48px; }
+        .sec { padding: 96px 0; }
+        .sec-label { font-size:10px; font-weight:500; letter-spacing:5px; text-transform:uppercase; color: var(--gold); margin-bottom:14px; }
+        .sec-title { font-family:'Cormorant Garamond',serif; font-size: clamp(36px,4.5vw,58px); font-weight:400; line-height:1.1; margin-bottom:14px; }
+        .sec-desc { font-size:14px; color: var(--muted); max-width:560px; margin-bottom:56px; }
+        .gold-hr { height:1px; background: linear-gradient(to right, transparent, rgba(245,166,35,.3), transparent); }
+
+        /* INSIGHT BOX */
+        .insight { display:flex; gap:20px; align-items:flex-start; background: var(--card); border-left:3px solid var(--gold); padding: 28px 32px; margin-bottom:72px; }
+        .insight-ico { font-size:24px; flex-shrink:0; color: var(--gold); }
+        .insight-txt { font-family:'Cormorant Garamond',serif; font-size:19px; color: var(--light); }
+        .insight-txt strong { color: var(--gold); }
+
+        /* SCENARIO CARDS */
+        .scenario { display:grid; grid-template-columns: 340px 1fr; gap:0; background: var(--card); border: 1px solid var(--border); overflow:hidden; margin-bottom: 2px; }
+        .scenario-sidebar { background: var(--card2); padding:48px 40px; border-right:1px solid var(--border); }
+        .scenario-num { font-family:'Cormorant Garamond',serif; font-size:80px; color: rgba(245,166,35,0.1); line-height:1; }
+        .scenario-badge { display:inline-block; font-size:9px; letter-spacing:2px; text-transform:uppercase; color: var(--gold); border:1px solid rgba(245,166,35,.3); padding:4px 10px; margin-bottom:16px; }
+        .scenario-title { font-family:'Cormorant Garamond',serif; font-size:26px; margin-bottom:10px; }
+        .scenario-content { padding:48px; }
+        .detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px 48px; }
+
+        .dl-label { font-size:9px; letter-spacing:3px; text-transform:uppercase; color: var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+        .dl-label::after { content:''; flex:1; height:1px; background: var(--border); }
+        .dl-items { list-style:none; }
+        .dl-items li { font-size:13px; color:#bbb; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04); display:flex; gap:9px; }
+        .dl-items li::before { content:'—'; color: var(--gold); }
+        .dl-items li span { color: var(--white); font-weight:500; }
+
+        /* OUTFIT SHOWCASE */
+        .outfit-section { padding: 96px 0; background: var(--card); border-top:1px solid var(--border); }
+        .outfit-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:2px; margin-top:48px; }
+        .outfit-card { background: var(--black); transition: transform .3s ease; }
+        .outfit-card:hover { transform: translateY(-5px); }
+        .outfit-img-wrap { aspect-ratio: 3/4; overflow:hidden; background: #111; position:relative; }
+        .outfit-img-wrap img { width:100%; height:100%; object-fit:cover; filter: grayscale(20%); transition: .5s; }
+        .outfit-card:hover img { filter: grayscale(0%); transform: scale(1.05); }
+        .outfit-tag { position:absolute; top:16px; left:16px; font-size:9px; background: var(--gold); color: var(--black); font-weight:700; padding:4px 12px; letter-spacing:2px; }
+        .outfit-body { padding:24px; }
+        .outfit-title { font-family:'Cormorant Garamond',serif; font-size:22px; margin-bottom:4px; }
+        .outfit-context { font-size:10px; color: var(--gold); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+        .outfit-pieces { list-style:none; font-size:12px; color:#999; }
+        .outfit-pieces li { padding:4px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+
+        /* PIECES */
+        .pieces-category { margin-top: 72px; }
+        .cat-label { font-size:10px; letter-spacing:4px; text-transform:uppercase; color: var(--gold); margin-bottom:32px; display:flex; align-items:center; gap:20px; }
+        .cat-label::after { content:''; flex:1; height:1px; background: var(--border); }
+        .pieces-row { display:grid; grid-template-columns: repeat(4, 1fr); gap:2px; }
+        .piece-card { background: var(--card); transition: .3s; }
+        .piece-img-wrap { aspect-ratio: 1/1; overflow:hidden; position:relative; }
+        .piece-img-wrap img { width:100%; height:100%; object-fit:cover; }
+        .piece-body { padding:20px; }
+        .piece-name { font-family:'Cormorant Garamond',serif; font-size:18px; margin-bottom:4px; }
+        .piece-desc { font-size:12px; color: var(--muted); line-height:1.5; }
+
+        /* RULES */
+        .rules-grid { display:grid; grid-template-columns: 1fr 1fr; gap:2px; margin-top:48px; }
+        .rules-col { padding:48px; }
+        .rules-col.do { background: rgba(245,166,35,0.03); border-top: 2px solid var(--gold); }
+        .rules-col.dont { background: rgba(255,255,255,0.02); border-top: 2px solid #333; }
+        .rules-list { list-style:none; }
+        .rules-list li { font-size:13px; margin-bottom:12px; display:flex; gap:12px; color:#ccc; }
+        .rm { width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; flex-shrink:0; }
+        .do .rm { background: var(--gold); color: var(--black); }
+        .dont .rm { background: #333; color: #666; }
+
+        /* FORMULA */
+        .formula-eq { display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; margin:48px 0; }
+        .ft { background: var(--card); border:1px solid var(--border); padding:20px; text-align:center; min-width:160px; }
+        .ft-l { font-size:9px; color: var(--muted); text-transform:uppercase; margin-bottom:8px; }
+        .ft-v { font-family:'Cormorant Garamond',serif; font-size:20px; }
+        .ft.result { background: var(--gold); border-color: var(--gold); color: var(--black); }
+        .fop { font-family:'Cormorant Garamond',serif; font-size:32px; color: var(--gold); }
+
+        footer { padding: 60px; text-align:center; border-top:1px solid var(--border); font-size:11px; color: var(--muted); }
+
+        @keyframes fadeUp { from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)} }
+        @media(max-width:900px) {
+            .scenario, .detail-grid, .outfit-grid, .pieces-row, .rules-grid { grid-template-columns: 1fr; }
+            .wrap { padding: 0 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-brand"><span>XP</span> Consultoria</div>
+        <div class="nav-tag">Líder Regional · Edição 2025</div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-line"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Guia de Presença Executiva</p>
+            <h1 class="hero-title">Vista-se como<br><em>a autoridade</em><br>que você representa</h1>
+            <p class="hero-sub">Protocolo de imagem estratégico para o Líder Regional Centro-Oeste — calibrado para o segmento Ultra HNW.</p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <div class="wrap">
+        <section class="sec">
+            <p class="sec-label">Fundamento</p>
+            <h2 class="sec-title">A roupa como ativo<br>de confiança</h2>
+            <p class="sec-desc">No mercado de capitais, a percepção de competência precede a entrega de resultados. Sua imagem deve ser o primeiro indicativo de sua gestão rigorosa.</p>
+            <div class="insight">
+                <div class="insight-ico">◈</div>
+                <p class="insight-txt">Seu estilo comunica: <strong>Autoridade</strong> para inspirar confiança, <strong>Sofisticação</strong> para alinhar-se ao patrimônio e <strong>Presença Contemporânea</strong> para diferenciar-se do modelo bancário tradicional.</p>
+            </div>
+
+            <div class="scenario">
+                <div class="scenario-sidebar">
+                    <div class="scenario-badge">Cenário 01</div>
+                    <div class="scenario-title">Clientes Ultra HNW & Family Offices</div>
+                </div>
+                <div class="scenario-content">
+                    <div class="detail-grid">
+                        <div class="dl">
+                            <div class="dl-label">Alfaiataria</div>
+                            <ul class="dl-items">
+                                <li><span>Terno Completo:</span> Navy ou Carvão.</li>
+                                <li><span>Corte:</span> Sob medida ou Slim impecável.</li>
+                            </ul>
+                        </div>
+                        <div class="dl">
+                            <div class="dl-label">Calçados</div>
+                            <ul class="dl-items">
+                                <li><span>Oxford:</span> Preto ou Castanho escuro.</li>
+                                <li><span>Estado:</span> Sempre lustrados.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="outfit-section">
+        <div class="wrap">
+            <p class="sec-label">Composições</p>
+            <h2 class="sec-title">Looks Estratégicos</h2>
+            <div class="outfit-grid">
+                <div class="outfit-card">
+                    <div class="outfit-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=600" alt="Look Navy">
+                        <div class="outfit-tag">01</div>
+                    </div>
+                    <div class="outfit-body">
+                        <div class="outfit-context">Máxima Formalidade</div>
+                        <div class="outfit-title">O Padrão Navy</div>
+                        <ul class="outfit-pieces">
+                            <li>Terno Navy de Lã Fina</li>
+                            <li>Camisa Branca Egípcia</li>
+                            <li>Oxford Preto</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="outfit-card">
+                    <div class="outfit-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&q=80&w=600" alt="Look Chumbo">
+                        <div class="outfit-tag">02</div>
+                    </div>
+                    <div class="outfit-body">
+                        <div class="outfit-context">Business Moderno</div>
+                        <div class="outfit-title">Carvão & Azul</div>
+                        <ul class="outfit-pieces">
+                            <li>Terno Chumbo</li>
+                            <li>Camisa Azul Claro</li>
+                            <li>Derby Café</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="outfit-card">
+                    <div class="outfit-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="Look Casual">
+                        <div class="outfit-tag">03</div>
+                    </div>
+                    <div class="outfit-body">
+                        <div class="outfit-context">Centro-Oeste Casual</div>
+                        <div class="outfit-title">Smart Executivo</div>
+                        <ul class="outfit-pieces">
+                            <li>Blazer Isolado</li>
+                            <li>Chino Bege</li>
+                            <li>Loafer de Couro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec" style="background: var(--card2); border-top: 1px solid var(--border);">
+        <div class="wrap">
+            <p class="sec-label">Logística de Imagem</p>
+            <h2 class="sec-title">Checklist: A Mala<br>do Líder Regional</h2>
+            <p class="sec-desc">Mantenha a autoridade entre o calor do Centro-Oeste e o ar corporativo da Faria Lima.</p>
+            
+            <div class="detail-grid">
+                <div class="dl">
+                    <div class="dl-label">Essenciais de Trânsito</div>
+                    <ul class="dl-items">
+                        <li><span>Porta-ternos:</span> Para evitar vincos profundos.</li>
+                        <li><span>Steamer Portátil:</span> Inegociável para camisas impecáveis.</li>
+                        <li><span>2 Camisas Brancas:</span> O dobro da necessidade para imprevistos.</li>
+                    </ul>
+                </div>
+                <div class="dl">
+                    <div class="dl-label">Manutenção de Campo</div>
+                    <ul class="dl-items">
+                        <li><span>Escova de Brilho:</span> Para remover poeira urbana.</li>
+                        <li><span>Kit Grooming:</span> Perfume discreto e higiene completa.</li>
+                        <li><span>Bagagem de Mão:</span> Nunca despache sua "armadura" de reunião.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec">
+        <div class="wrap">
+            <p class="sec-label">Protocolo Final</p>
+            <h2 class="sec-title">Regras de Ouro</h2>
+            <div class="rules-grid">
+                <div class="rules-col do">
+                    <div class="rules-list">
+                        <li><div class="rm">✓</div> Roupas sempre passadas (sem exceção).</li>
+                        <li><div class="rm">✓</div> Sapatos e cintos coordenados em cor e textura.</li>
+                        <li><div class="rm">✓</div> Relógio discreto e de qualidade.</li>
+                    </div>
+                </div>
+                <div class="rules-col dont">
+                    <div class="rules-list">
+                        <li><div class="rm">✗</div> Mochilas com terno (use pastas de mão).</li>
+                        <li><div class="rm">✗</div> Tênis esportivos em reuniões.</li>
+                        <li><div class="rm">✗</div> Logotipos de marcas excessivamente visíveis.</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec" style="background: var(--card);">
+        <div class="wrap">
+            <div class="formula-eq">
+                <div class="ft"><div class="ft-l">Caimento</div><div class="ft-v">Ajuste Preciso</div></div>
+                <div class="fop">+</div>
+                <div class="ft"><div class="ft-l">Qualidade</div><div class="ft-v">Tecidos Naturais</div></div>
+                <div class="fop">=</div>
+                <div class="ft result"><div class="ft-l">Impacto</div><div class="ft-v">Autoridade Regional</div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        XP Consultoria · Centro-Oeste · Guia de Estilo 2025
+    </footer>
+
+</body>
+</html>
